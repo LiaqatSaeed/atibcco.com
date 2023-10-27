@@ -1,0 +1,1 @@
+self.__NEXT_FONT_MANIFEST='{"pages":{},"app":{"/Users/mac/Desktop/ClientProjects/atibcco/src/app/layout":["static/media/c9a5bc6a7c948fb0-s.p.woff2"],"/Users/mac/Desktop/ClientProjects/atibcco/src/app/page":["static/media/6a7a7a30cb60abfb-s.p.woff2"]},"appUsingSizeAdjust":true,"pagesUsingSizeAdjust":false}';
