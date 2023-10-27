@@ -19,7 +19,7 @@ jobs:
           git config --global user.name "Liaqat Saeed"
           git checkout -b gh-pages
           git rm -rf .
-          cp -r build/* .
+          cp -r build .
           touch .nojekyll
           git add .
           git commit -m "Deploy build to GitHub Pages"
