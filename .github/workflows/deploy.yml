@@ -19,7 +19,7 @@ jobs:
           git config --global user.name "YLiaqat Saeed"
           git checkout -b gh-pages
           git rm -rf .
-          rsync -av --exclude=".git" --delete main/build/ .  # Copy the contents of the main branch's build directory to the root of the gh-pages branch
+          git checkout main -- build/
           touch .nojekyll  # Create a .nojekyll file to bypass Jekyll processing (if needed)
           git add .
           git commit -m "Deploy .next to GitHub Pages"
