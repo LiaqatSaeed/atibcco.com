@@ -13,20 +13,17 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Deploy build to GitHub Pages
+      - name: Deploy .next to GitHub Pages
         run: |
-          git config --global user.email "liaqatsaeed007@gmail.com"
-          git config --global user.name "Your Name"
-          git checkout -b gh-pages
+          git config --global user.email "liaqatsaeed@gmail.com"
+          git config --global user.name "YLiaqat Saeed"
+          git checkout gh-pages
           git rm -rf .
           git checkout main build
           touch .nojekyll  # Create a .nojekyll file to bypass Jekyll processing (if needed)
           git add .
-          git commit -m "Deploy build to GitHub Pages"
-          git push -f https://${{ secrets.GH_TOKEN }}@github.com/LiaqatSaeed/atibcco.com.git gh-pages
-          env:
-            GH_TOKEN: ${{ secrets.GH_TOKEN }}
-
+          git commit -m "Deploy .next to GitHub Pages"
+          git push -f origin gh-pages
 
       - name: Deployment Complete
-        run: echo 'Deployment of build to GitHub Pages complete successfully!'
+        run: echo 'Deployment of .next to GitHub Pages complete!'
