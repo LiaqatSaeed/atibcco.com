@@ -28,7 +28,7 @@ jobs:
           touch .nojekyll  # Create a .nojekyll file to bypass Jekyll processing (if needed)
           git add .
           git commit -m "Deploy build to GitHub Pages"
-          git push
+          git push -f https://${{ secrets.GH_TOKEN }}@github.com/LiaqatSaeed/atibcco.com.git gh-pages
       
 
       - name: Deployment Complete
