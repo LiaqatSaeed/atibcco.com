@@ -22,6 +22,7 @@ jobs:
         run: |
           git config --global user.email "liaqatsaeed007@gmail.com"
           git config --global user.name "Liaqat Saeed"
+          git fetch --all
           git checkout -b gh-pages
           cp -r build .  # Copy the build contents to the root of the gh-pages branch
           touch .nojekyll  # Create a .nojekyll file to bypass Jekyll processing (if needed)
