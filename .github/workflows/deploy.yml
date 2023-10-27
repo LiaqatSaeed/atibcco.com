@@ -24,7 +24,7 @@ jobs:
           git config --global user.name "Liaqat Saeed"
           git checkout -b gh-pages
           rm -rf ./*  # Remove the existing contents of the gh-pages branch
-          cp -r build/* .  # Copy the build contents to the root of the gh-pages branch
+          cp -r build .  # Copy the build contents to the root of the gh-pages branch
           touch .nojekyll  # Create a .nojekyll file to bypass Jekyll processing (if needed)
           git add .
           git commit -m "Deploy build to GitHub Pages"
