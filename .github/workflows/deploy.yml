@@ -13,6 +13,11 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
+      - name: Debug
+        run: |
+          echo "Contents of the 'build' directory:"
+          ls -l build/
+
       - name: Deploy to GitHub Pages
         run: |
           git config --global user.email "liaqatsaeed007@gmail.com"
