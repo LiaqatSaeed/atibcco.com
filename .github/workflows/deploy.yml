@@ -2,35 +2,26 @@ name: Deploy to GitHub Pages on Main Branch
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
-  build:
-
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # https://github.com/actions/checkout
-      - uses: actions/checkout@v3
-        
-      # a standard step for GitHub actions on Node
-      # https://github.com/actions/setup-node
-      - uses: actions/setup-node@v3
-        with:
-          # update the Node version to meet your needs
-          node-version: 16
-          cache: npm
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-      - name: Build
+      - name: Deploy to GitHub Pages
         run: |
-          npm ci
-          npm run build
-          npm run export
-          touch build/.nojekyll
+          git checkout gh-pages
+          git rm -rf .
+          cp -r build/* .
+          touch .nojekyll
+          git add .
+          git commit -m "Deploy build to GitHub Pages"
+          git push -f origin gh-pages
 
-      - name: Deploy
-        # https://github.com/JamesIves/github-pages-deploy-action
-        uses: JamesIves/github-pages-deploy-action@4.4.0
-        with:
-          branch: gh-pages
-          folder: build
+      - name: Deployment Complete
+        run: echo 'Deployment to GitHub Pages complete!'
