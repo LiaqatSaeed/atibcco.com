@@ -18,20 +18,10 @@ jobs:
           echo "Contents of the 'build' directory:"
           ls -l build/
 
-      - name: Deploy to GitHub Pages
-        run: |
-          git config --global user.email "liaqatsaeed007@gmail.com"
-          git config --global user.name "Liaqat Saeed"
-          git fetch --all
-          git checkout -b gh-pages
-          cp -r build/* .  # Copy the build contents to the root of the gh-pages branch
-          touch .nojekyll  # Create a .nojekyll file to bypass Jekyll processing (if needed)
-          git add .
-          git commit -m "Deploy build to GitHub Pages"
-          echo secrets.GH_TOKEN
-          git push -f https://${{ secrets.GH_TOKEN }}@github.com/LiaqatSaeed/atibcco.com.git gh-pages
-          env:
-            GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build # The folder the action should deploy.
       
 
       - name: Deployment Complete
