@@ -15,7 +15,7 @@ jobs:
 
       - name: Deploy .next to GitHub Pages
         run: |
-          git config --global user.email "liaqatsaeed@gmail.com"
+          git config --global user.email "liaqatsaeed007@gmail.com"
           git config --global user.name "YLiaqat Saeed"
           git checkout gh-pages
           git rm -rf .
