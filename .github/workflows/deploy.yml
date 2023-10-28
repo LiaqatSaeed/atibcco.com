@@ -13,18 +13,13 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Verify Directory Structure
-        run: |
-          ls -R  # List all files in the repository
-          ls -R main  # List all files in the 'main' branch
-
       - name: Deploy .next to GitHub Pages
         run: |
           git config --global user.email "liaqatsaeed007@gmail.com"
           git config --global user.name "YLiaqat Saeed"
           git checkout -b gh-pages
           git rm -rf .
-          cp -r main/build/* .
+          git checkout main ./build
           touch .nojekyll  # Create a .nojekyll file to bypass Jekyll processing (if needed)
           git add .
           git commit -m "Deploy .next to GitHub Pages"
