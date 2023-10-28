@@ -19,6 +19,7 @@ jobs:
           git config --global user.name "YLiaqat Saeed"
           git checkout -b gh-pages
           git rm -rf .
+          echo $(dirname "$(pwd)")
           git checkout main ./build
           touch .nojekyll  # Create a .nojekyll file to bypass Jekyll processing (if needed)
           git add .
