@@ -20,7 +20,7 @@ jobs:
           git checkout -b gh-pages
           git rm -rf .
           echo $(dirname "$(pwd)")
-          git checkout main ./build
+          cp -r build/* .
           touch .nojekyll  # Create a .nojekyll file to bypass Jekyll processing (if needed)
           git add .
           git commit -m "Deploy .next to GitHub Pages"
